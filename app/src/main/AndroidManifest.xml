@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="zhongxin.m365" >
+
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 权限允许将下载的apk保存到sd卡中。 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 权限允许将下载的apk保存到sd卡中。 -->
+    <!-- 友盟权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission> <!-- 权限允许将下载的apk保存到sd卡中。 -->
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="55cc074ae0f55a1399000d7b" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID   " />
+
+        <service
+            android:name="com.umeng.update.net.DownloadingService"
+            android:process=":DownloadingService" >
+        </service>
+
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+
+        <activity
+            android:name="zhongxin.m365.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="zhongxin.m365.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop" >
+        </activity>
+
+        <!-- 登录 -->
+        <activity
+            android:name="zhongxin.m365.activity.LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <!-- 忘记密码 -->
+        <activity android:name="zhongxin.m365.activity.ForgetPasdActivity" >
+        </activity>
+        <!-- 选取照片弹窗 -->
+        <activity
+            android:name=".selectimage.PopUpActivity"
+            android:theme="@style/MyDialogStyleBottom" >
+        </activity>
+        <!-- 图片剪裁  上传 -->
+        <activity
+            android:name=".selectimage.ClipImageActivity"
+            android:label="@string/title_activity_clip_image" >
+        </activity>
+    </application>
+
+</manifest>

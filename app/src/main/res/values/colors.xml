@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="province_line_border">#C7C7C7</color>
+    
+    <!-- 浅灰色 -->
+    <color name="color_line_gray">#b2b2b2</color>
+    <!-- 白色 -->
+    <color name="white">#FFFFFF</color>
+    <!-- 淡红色 -->
+    <color name="light_red">#FF6666</color>
+    <!-- ================================================================= -->
+    <color name="grey"> #ebebeb</color>
+    <color name="yellobtn"> #FE9900</color>
+    <!-- 条目 -->
+    <color name="item_text">#333333</color>
+    <color name="item_background">#ffffff</color>
+    <color name="bg_yellow">#EBEBDF</color>
+    <color name="text_view_border">#000000</color>
+    <color name="dkgray">#80808FF0</color>
+    <color name="yello">#F8F8FF00</color>
+    <color name="darkgray">#938192</color>
+    <color name="lightgreen">#7cd12e</color>
+    <color name="black">#000000</color>
+    <color name="orange">#fca00e</color>
+    <color name="titlecolor">#44B6FD</color>
+    <color name="blue_water">#16B9A4</color>
+    <color name="blue">#1382FA</color>
+    <color name="cyan">#ff00ffff</color>
+    <color name="gray">#ff888888</color>
+    <color name="green">#ff00ff00</color>
+    <color name="ltgray">#ffcccccc</color>
+    <color name="magenta">#ffff00ff</color>
+    <color name="red">#FD4B57</color>
+    <color name="yellow">#FE9900</color>
+    <!-- 标题栏颜色样式 -->
+    <color name="title_background">#202020</color>
+    <color name="title_text">#999999</color>
+    <color name="title_main_text">#fdb811</color>
+    <color name="bg_bg">#ebebde</color>
+    <color name="indexcolor">#FFCC33</color>
+    <color name="basebackground">#EBEBEB</color>
+    <!-- 文字颜色绿色 -->
+    <color name="text_blue">#3399cc</color>
+    <!-- 视图背景色淡黄色 -->
+    <color name="view_bg">#EBEBDF</color>
+    <color name="transparent">#00000000</color>
+    <color name="ToastBgColor">#FF424242</color>
+    <color name="btnColor">#FFFFFF</color>
+    <color name="textColorforItemTitle">#FF666666</color>
+    <color name="secondbtntextColor">#FF496ea3</color>
+    <color name="textColorforCheckBox">#FF333333</color>
+    <color name="bgColor">#FFF2F2F2</color>
+    <color name="downLoadTextNomal">#FF3366CC</color>
+    <color name="downLoadTextPressed">#FFFFFFFF</color>
+    <color name="downLoadBackNomal">#FFFFFFFF</color>
+    <color name="downLoadBackFocus">#FF6698E7</color>
+    <color name="downLoadBackPressed">#FF3366CC</color>
+    <color name="dialog_tiltle_blue">#2277BB</color>
+    <color name="possible_result_points">#c0ffbd21</color>
+    <!-- Android standard ICS color -->
+    <color name="result_text">#ff000000</color>
+    <color name="viewfinder_laser">#ffcc0000</color>
+    <!-- Android standard ICS color -->
+    <color name="viewfinder_mask">#45000000</color>
+    <!-- 遮盖物 原本颜色#cb000000 -->
+    <color name="viewfinder_frame">#ff4EEE94</color>
+    <!-- #ff0000ff -->
+    <color name="scannerbackgroud">#ffffffff</color>
+    <color name="scannertitle_tv_color">#ffffffff</color>
+    <color name="TextColorBlack">#FF000000</color>
+    <color name="TextColordarklest">#333333</color>
+    <color name="TextColordarker">#666666</color>
+    <color name="TextColordark">#999999</color>
+    <color name="TextColorlight">#cccccc</color>
+    <color name="TextColorWhite">#FFFFFFFF</color>
+    <color name="TextColorGray">#FF505050</color>
+
+</resources>

@@ -1,0 +1,52 @@
+<resources>
+
+    <!-- title -->
+    <!-- title size 超级大的 -->
+    <dimen name="text_size_super_huge">24sp</dimen>
+    <!-- title size 巨大的 -->
+    <dimen name="text_size_huge">20sp</dimen>
+    <!-- title size 大的 -->
+    <dimen name="text_size_max">18sp</dimen>
+    <!-- title size 普通的 -->
+    <dimen name="text_size_mid">16sp</dimen>
+    <!-- title size 小一点点的 -->
+    <dimen name="text_size_small">12sp</dimen>
+    <!-- title size 最小的 -->
+    <dimen name="text_size_lowest">10sp</dimen>
+
+    <!-- widget -->
+    <dimen name="widget_marginleft">5dp</dimen>
+    <dimen name="widget_marginright">5dp</dimen>
+
+    <!-- hv_margin -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- distance -->
+    <dimen name="distance_edge">3dp</dimen>
+    <dimen name="distance_superhuge">20dp</dimen>
+    <dimen name="distance_huge">10dp</dimen>
+    <dimen name="distance_max">5dp</dimen>
+    <dimen name="distance_mid">3dp</dimen>
+    <dimen name="distance_small">2dp</dimen>
+    <dimen name="distance_smallest">1dp</dimen>
+    <dimen name="distance_float">0.5dp</dimen>
+    <dimen name="distance_floatest">0.2dp</dimen>
+
+    <!-- title -->
+    <dimen name="height_title">47dp</dimen>
+
+    <!-- Button -->
+    <dimen name="btn_width_mid">27dp</dimen>
+    <dimen name="btn_height_mid">27dp</dimen>
+    <dimen name="btn_height_max">35dp</dimen>
+
+    <!-- ListView -->
+    <!-- 条目高度 -->
+    <dimen name="list_view_height_mid">75dp</dimen>
+
+    <!-- EditText -->
+    <dimen name="edit_text_height_mid">33dp</dimen>
+    <dimen name="edit_text_height_small">22dp</dimen>
+
+</resources>

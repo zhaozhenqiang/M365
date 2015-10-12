@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 裁剪图片的Src -->
+    <attr name="ClipImageSrc" format="string" />
+    <!-- 距离屏幕左右两边的间隔 -->
+    <attr name="ClipImageHorizontalPadding" format="dimension" />
+
+    <!-- 自定义图片裁剪 -->
+    <declare-styleable name="mClipImage">
+        <attr name="ClipImageSrc" />
+        <attr name="ClipImageHorizontalPadding" />
+    </declare-styleable>
+    <!-- 圆形图片 -->
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color"></attr>
+    </declare-styleable>
+
+</resources>

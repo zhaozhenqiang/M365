@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btnstylewhite"
+        android:paddingBottom="@dimen/distance_huge"
+        android:paddingTop="@dimen/distance_huge" >
+
+        <TextView
+            android:id="@+id/listview_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="活动名称"
+            android:textColor="@color/TextColordark"
+            android:textSize="@dimen/text_size_mid" />
+
+        <TextView
+            android:id="@+id/listview_alreadyuse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="已使用人数"
+            android:textColor="@color/TextColordark"
+            android:textSize="@dimen/text_size_mid" />
+
+        <TextView
+            android:id="@+id/listview_take"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="领劵人数"
+            android:textColor="@color/TextColordark"
+            android:textSize="@dimen/text_size_mid" />
+    </LinearLayout>
+
+</LinearLayout>

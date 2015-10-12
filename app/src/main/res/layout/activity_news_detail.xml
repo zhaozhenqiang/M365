@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/TextColorlight" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/distance_huge"
+        android:background="@drawable/btnstylewhite"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/distance_huge"
+        android:paddingRight="@dimen/distance_huge" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/distance_huge"
+            android:layout_marginTop="@dimen/distance_huge"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/news_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxEms="6"
+                android:singleLine="true"
+                android:text="养车点点免费洗车啦来个字数常常的样式"
+                android:textColor="@color/TextColordarklest"
+                android:textSize="@dimen/text_size_mid" />
+
+            <TextView
+                android:id="@+id/news_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="2015-04-28 23:04"
+                android:textColor="@color/TextColordarker"
+                android:textSize="@dimen/text_size_mid" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/distance_float"
+            android:background="@color/basebackground" />
+
+        <TextView
+            android:id="@+id/news_content"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginBottom="@dimen/distance_max"
+            android:layout_marginTop="@dimen/distance_max"
+            android:text="       你好，我是房东，请把下半年的房租打到18888888888支付宝账号上，谢谢。"
+            android:textColor="@color/TextColordarker"
+            android:textSize="@dimen/text_size_mid" />
+    </LinearLayout>
+
+</LinearLayout>

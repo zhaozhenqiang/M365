@@ -1,0 +1,44 @@
+package zhongxin.m365.bean.older;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+
+public class FatherServe implements Serializable{
+/*    "id": "2",
+    "title": "美容",
+    "item": [
+        {*/
+	private String id;
+	private String title;
+	private ArrayList<SubServe> item;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public ArrayList<SubServe> getItem() {
+		return item;
+	}
+	public void setItem(ArrayList<SubServe> item) {
+		this.item = item;
+	}
+	public FatherServe(String id, String title, ArrayList<SubServe> item) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.item = item;
+	}
+	public FatherServe() {
+		super();
+	}
+	
+	
+}
