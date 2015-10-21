@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:background="@drawable/btnstyleblue"
+        android:background="@drawable/btnstylemain"
         android:text="@string/suit"
         
         android:textSize="22sp"

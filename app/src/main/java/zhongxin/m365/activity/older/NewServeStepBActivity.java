@@ -27,7 +27,7 @@ import com.lidroid.xutils.view.annotation.event.OnClick;
 @ContentView(R.layout.activity_newservestepb)
 public class NewServeStepBActivity extends BaseActivity {
 
-	static final String TAG = "NewOrderActivity";
+	static final String TAG = "RegisterActivity";
 	@ViewInject(R.id.basetitle)
 	private TextView basetitle;
 	Context mContext;

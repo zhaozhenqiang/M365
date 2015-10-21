@@ -3,7 +3,7 @@
     android:id="@+id/actionbarLayoutId"
     android:layout_width="fill_parent"
     android:layout_height="@dimen/height_title"
-    android:background="@color/titlecolor"
+    android:background="@mipmap/title_bark"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:gravity="center_vertical" >
@@ -39,15 +39,17 @@
         android:onClick="onClick"
         android:singleLine="true"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_super_huge" />
+        android:padding="12dp"
+        android:textSize="@dimen/text_size_huge" />
 
-    <Button
+    <ImageView
         android:id="@+id/baseback"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="15dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/back"
+        android:src="@mipmap/title_left"
         android:onClick="onClick" />
 
 </RelativeLayout>

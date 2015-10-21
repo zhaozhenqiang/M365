@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/btnstyleblue"
+                android:background="@drawable/btnstylemain"
                 android:text="保 存"
                 android:textColor="#FFFFFF"
                 android:textSize="22sp" />

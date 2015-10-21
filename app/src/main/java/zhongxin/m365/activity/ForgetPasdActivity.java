@@ -34,8 +34,6 @@ public class ForgetPasdActivity extends BaseActivity {
 	boolean testFlag = false;
 	@ViewInject(R.id.pasd)
 	private EditText pasd;
-	@ViewInject(R.id.repasd)
-	private EditText repasd;
 	String uid;
 
 	@Override
@@ -70,7 +68,6 @@ public class ForgetPasdActivity extends BaseActivity {
 		phoneet = (EditText) findViewById(R.id.phone_forgetpasd);
 		codeet = (EditText) findViewById(R.id.code_forgetpasd);
 		pasd = (EditText) findViewById(R.id.pasd);
-		repasd = (EditText) findViewById(R.id.repasd);
 		Forgetpasdlistener l = new Forgetpasdlistener();
 		nextbtn.setOnClickListener(l);
 		getcodebtn.setOnClickListener(l);
@@ -129,13 +126,12 @@ public class ForgetPasdActivity extends BaseActivity {
 		String url = UCS.URLCOMMON + "user/index/modifypwd";
 		String keys[] = { "uid", "pwd", "update_id", UCS.MOBILE, "vcode" };
 		String pasdstr = pasd.getText().toString();
-		String repasdstr = repasd.getText().toString();
 		// pasdstr = MD5.getMD5(pasdstr);
 		// repasdstr = MD5.getMD5(repasdstr);
 		String values[] = { uid, pasdstr, uid, phoneet.getText().toString(),
 				codeet.getText().toString() };
 		Log.i(TAG, "mobile[" + "]" + "pasdstr[" + pasdstr + "]" + "authcode["
-				+ "]" + "repasdstr[" + repasdstr + "]");
+				+ "]" + "repasdstr[" + "]");
 		HttpUtils.upload(ForgetPasdActivity.this, url, keys, values,
 				new BackJson() {
 

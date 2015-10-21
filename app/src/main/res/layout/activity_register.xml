@@ -1,0 +1,122 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ForgetPasdActivity" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical" >
+
+            <EditText
+                android:id="@+id/phone_forgetpasd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/forget_user"
+                android:inputType="number"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/distance_superhuge"
+            android:layout_height="@dimen/distance_smallest"
+            android:layout_marginLeft="@dimen/distance_superhuge"
+            android:background="@color/basebackground" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:paddingTop="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <!--    <zhongxin.m365.views.ClearableEditText-->
+            <EditText
+                android:id="@+id/code_forgetpasd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/forget_code"
+                android:inputType="textPassword"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/getCode_forgrtpasd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnstylemain"
+                android:padding="5dp"
+                android:text="@string/forget_code_index"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/distance_superhuge"
+            android:layout_height="@dimen/distance_smallest"
+            android:layout_marginLeft="@dimen/distance_superhuge"
+            android:background="@color/basebackground" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:paddingTop="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <!--    <zhongxin.m365.views.ClearableEditText-->
+            <EditText
+                android:id="@+id/pasd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/forget_password"
+                android:inputType="textPassword"
+                android:textSize="16sp" />
+            <ImageView
+                android:id="@+id/look_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@mipmap/login_03" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/distance_smallest"
+            android:layout_marginLeft="@dimen/distance_superhuge"
+            android:layout_marginRight="@dimen/distance_superhuge"
+            android:background="@color/basebackground" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/next_forgetpasd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/distance_superhuge"
+        android:background="@drawable/btnstylemain"
+        android:gravity="center"
+        android:text="@string/forget_sure"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_max" />
+
+</LinearLayout>

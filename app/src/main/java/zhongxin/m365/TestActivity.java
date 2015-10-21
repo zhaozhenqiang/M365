@@ -2,6 +2,7 @@ package zhongxin.m365;
 
 /**
  * Created by zhaozhenqiang on 2015/10/10.
+ * 专门为选取头像而设置的页面！可以选择照片，及拍照并剪切
  */
 
 import java.io.File;

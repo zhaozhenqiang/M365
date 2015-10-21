@@ -9,6 +9,8 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
+
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,15 +19,16 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 @ContentView(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
 	@ViewInject(R.id.main_personal_message_iv)
-	private ImageView main_personal_message_iv;// 消息
+	private TextView main_personal_message_iv;// 消息
 	@ViewInject(R.id.main_home_iv)
-	private ImageView main_home_iv;// 首页
+	private TextView main_home_iv;// 首页
 	@ViewInject(R.id.main_personal_center_iv)
-	private ImageView main_personal_center_iv;// 个人中心
+	private TextView main_personal_center_iv;// 个人中心
 	private FragmentManager fm;
 	private HomeFragment homeFragment;
 	private PersonalCenterFragment personalCenterFragment;
@@ -48,7 +51,7 @@ public class MainActivity extends BaseActivity {
 		homeFragment = new HomeFragment();
 		personalCenterFragment = new PersonalCenterFragment();
 		newsFragment = new NewsFragment();
-		main_home_iv.setBackgroundResource(R.drawable.home_cur_2x);// 初始化
+		//main_home_iv.setBackgroundResource(R.drawable.home_cur_2x);// 初始化
 	}
 
 	@OnClick({ R.id.main_home, R.id.main_personal_center,
@@ -56,20 +59,20 @@ public class MainActivity extends BaseActivity {
 	public void mOnClick(View v) {
 		switch (v.getId()) {
 		case R.id.main_personal_message:
-			changebackground();
+/*			changebackground();
 			main_personal_message_iv.setBackgroundResource(R.drawable.message_cur_2x);
-			changeFragment(newsFragment);
+			//changeFragment(newsFragment);*/
 			break;
 		/* 主页 */
 		case R.id.main_home:
-			changebackground();
+/*			changebackground();
 			main_home_iv.setBackgroundResource(R.drawable.home_cur_2x);
-			changeFragment(homeFragment);
+			//changeFragment(homeFragment);*/
 			break;
 		/* 个人中心 */
 		case R.id.main_personal_center:
 			changebackground();
-			main_personal_center_iv.setBackgroundResource(R.drawable.p_center_cur_2x);
+			//main_personal_center_iv.setBackgroundResource(R.drawable.p_center_cur_2x);
 			changeFragment(personalCenterFragment);
 			break;
 		default:
@@ -81,10 +84,14 @@ public class MainActivity extends BaseActivity {
 	 * 点击控件背景
 	 */
 	public void changebackground() {
-		main_personal_message_iv.setBackgroundResource(R.drawable.message_2x);
-		main_home_iv.setBackgroundResource(R.drawable.home_2x);
-		main_personal_center_iv.setBackgroundResource(R.drawable.p_center_2x);
+		//main_personal_message_iv.setBackgroundResource(R.drawable.message_2x);
+		//main_home_iv.setBackgroundResource(R.drawable.home_2x);
+		//main_personal_center_iv.setBackgroundResource(R.drawable.p_center_2x);
 
+		Drawable topDrawable = getResources().getDrawable(R.mipmap.footer_05_);
+		topDrawable.setBounds(0, 0, topDrawable.getMinimumWidth(), topDrawable.getMinimumHeight());
+		//tvVersionStatus.setCompoundDrawables(null, null, rightDrawable, null);
+		main_personal_center_iv.setCompoundDrawablesWithIntrinsicBounds(null,topDrawable,null,null);
 	}
 
 	/* 初始化Fragment */

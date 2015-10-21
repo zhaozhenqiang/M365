@@ -33,23 +33,23 @@ import android.widget.Toast;
  * @author zzq
  * 
  */
-public class PersonalCenterFragment extends Fragment implements OnClickListener {
+public class PersonalCenterFragment extends Fragment {// implements OnClickListener
 	@ViewInject(R.id.basetitle)
 	private TextView title;
 	
-	@ViewInject(R.id.storename)
-	/* 意见反馈 */
+/*	@ViewInject(R.id.storename)
+	*//* 意见反馈 *//*
 	private TextView storename;
 	
 	@ViewInject(R.id.center_back)
-	/* 意见反馈 */
+	*//* 意见反馈 *//*
 	private TextView center_back;
 	@ViewInject(R.id.center_renew)
-	/* 检查版本更新 */
+	*//* 检查版本更新 *//*
 	private TextView center_renew;
 	@ViewInject(R.id.center_getout)
-	/* 检查版本更新 */
-	private TextView center_getout;
+	*//* 检查版本更新 *//*
+	private TextView center_getout;*/
 	@ViewInject(R.id.baseback)
 	private Button baseback;
 	Context mContext;
@@ -70,9 +70,9 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 		initUid();
 		/* 初始化子布局，判断已登录，或未登录，并通过注解添加点击事件 */
 		// initchildview();
-		baseback.setVisibility(View.GONE);
-		title.setText("个人中心");
-		storename.setText(storeName);
+		//baseback.setVisibility(View.GONE);
+		title.setText("我的");
+		//storename.setText(storeName);
 		mContext = this.getActivity();
 		return view;
 	}
@@ -83,28 +83,28 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 				Activity.MODE_PRIVATE).getString("name", "");
 	}
 
-	@OnClick({ R.id.center_getout, R.id.center_back, R.id.center_renew })
+/*	@OnClick({ R.id.center_getout, R.id.center_back, R.id.center_renew })
 	public void onClick(View view) {
 		// TODO Auto-generated method stub
 		switch (view.getId()) {
 		case R.id.center_back:
-		/* 意见反馈 */
-		/*
+		*//* 意见反馈 *//*
+		*//*
 		 * initUid(); if (uid == null || "".equals(uid)) { Intent intent = new
 		 * Intent(getActivity(), LoginActivity.class); startActivity(intent); }
 		 * else
-		 */{
+		 *//*{
 			Intent intentfeedsuggest = new Intent(getActivity(),
 					FeedBackActivity.class);
 			startActivity(intentfeedsuggest);
 		}
 			break;
 		case R.id.center_renew:
-			/* 检查版本更新 */
-			/*
+			*//* 检查版本更新 *//*
+			*//*
 			 * AppUpdateUtils appUpdateUtils = new AppUpdateUtils(getActivity(),
 			 * false); appUpdateUtils.getserviceapkcodeOrstartIntent();
-			 */
+			 *//*
 			UmengUpdateAgent.setUpdateAutoPopup(false);
 			UmengUpdateAgent.setUpdateListener(new UmengUpdateListener() {
 			    @Override
@@ -132,9 +132,9 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 
 		case R.id.center_getout:
 			// 退出登录
-			/**
+			*//**
 			 * 清除已登录的所有信息
-			 */
+			 *//*
 			SharedPreferences user = getActivity().getSharedPreferences(
 					UCS.USERINFO, Activity.MODE_PRIVATE);
 			user.edit().clear().commit();
@@ -147,6 +147,6 @@ public class PersonalCenterFragment extends Fragment implements OnClickListener 
 			break;
 
 		}
-	}
+	}*/
 
 }

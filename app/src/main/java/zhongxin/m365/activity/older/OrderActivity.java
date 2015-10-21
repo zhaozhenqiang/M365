@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import zhongxin.m365.R;
 import zhongxin.m365.activity.BaseActivity;
+import zhongxin.m365.activity.RegisterActivity;
 import zhongxin.m365.bean.older.Mo;
 import zhongxin.m365.bean.older.OrderItem;
 import zhongxin.m365.constant.UCS;
@@ -124,7 +125,7 @@ public class OrderActivity extends BaseActivity implements IXListViewListener {
 			break;
 		case R.id.righticon:
 		case R.id.startorder:
-			Intent start = new Intent(this, NewOrderActivity.class);
+			Intent start = new Intent(this, RegisterActivity.class);
 			startActivity(start);
 		default:
 			break;

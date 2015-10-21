@@ -1,0 +1,52 @@
+package zhongxin.m365.activity;
+
+import zhongxin.m365.R;
+import android.os.Bundle;
+import android.widget.TextView;
+import zhongxin.m365.constant.UCS;
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ContentView;
+import com.lidroid.xutils.view.annotation.ViewInject;
+
+@ContentView(R.layout.activity_news_detail)
+public class NewsDetailActivity extends BaseActivity {
+
+	static final String TAG = "NewsDetailActivity";
+	@ViewInject(R.id.basetitle)
+	private TextView basetitle;
+	@ViewInject(R.id.news_name)
+	private TextView news_name;
+	@ViewInject(R.id.news_time)
+	private TextView news_time;
+	@ViewInject(R.id.news_content)
+	private TextView news_content;
+	private String mtitle;
+	private String mcontent;
+	private String minsert_time;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		ViewUtils.inject(this);
+		initData();
+		initView();
+	}
+
+	private void initView() {
+		basetitle.setText("消息详情");
+		news_time.setText(minsert_time);
+		news_content.setText(mcontent);
+		if (mtitle.length() <= 7) {
+			news_name.setText(mtitle);
+		} else {
+			news_name.setText(mtitle.substring(0, 7) + "...");
+		}
+
+	}
+
+	private void initData() {
+		mtitle = getIntent().getStringExtra(UCS.TITLE);
+		mcontent = getIntent().getStringExtra("content");
+		minsert_time = getIntent().getStringExtra("insert_time");
+	}
+}

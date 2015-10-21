@@ -24,6 +24,7 @@ import android.widget.TextView;
  */
 public class HomeFragment extends Fragment {
 
+/*
 	@ViewInject(R.id.basetitle)
 	private TextView title;
 	@ViewInject(R.id.baseback)
@@ -33,6 +34,7 @@ public class HomeFragment extends Fragment {
 	private TextView order;
 	@ViewInject(R.id.serve)
 	private TextView serve;
+*/
 
 	private String uid, cust_id;
 	String code;
@@ -57,12 +59,12 @@ public class HomeFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_home, container, false);
 		ViewUtils.inject(this, view);
-		baseback.setVisibility(View.GONE);
-		title.setText("汽车1+2ERP管理系统");
+		//baseback.setVisibility(View.GONE);
+		//title.setText("汽车1+2ERP管理系统");
 		return view;
 	}
 
-	@OnClick({ R.id.order, R.id.serve })
+/*	@OnClick({ R.id.order, R.id.serve })
 	private void mOnClick(View v) {
 		switch (v.getId()) {
 		case R.id.order:
@@ -77,6 +79,6 @@ public class HomeFragment extends Fragment {
 		default:
 			break;
 		}
-	}
+	}*/
 
 }

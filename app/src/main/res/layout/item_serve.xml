@@ -67,7 +67,7 @@
         android:id="@+id/tohandle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btnstyleblue"
+        android:background="@drawable/btnstylemain"
         android:gravity="right"
         android:layout_gravity="right"
         android:paddingBottom="5dp"

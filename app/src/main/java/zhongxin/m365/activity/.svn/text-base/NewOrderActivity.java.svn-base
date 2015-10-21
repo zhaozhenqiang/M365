@@ -1,6 +1,9 @@
-package zhongxin.m365.activity.older;
+package zhongxin.m365.activity;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import android.app.Activity;
@@ -21,9 +24,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import zhongxin.m365.R;
-import zhongxin.m365.activity.BaseActivity;
-import zhongxin.m365.adapter.older.CardNumberAdapter;
-import zhongxin.m365.bean.older.OrderCar;
+import zhongxin.m365.adapter.CardNumberAdapter;
+import zhongxin.m365.bean.OrderCar;
 import zhongxin.m365.constant.UCS;
 import zhongxin.m365.utils.HttpUtils;
 import zhongxin.m365.utils.HttpUtils.BackJson;
@@ -101,6 +103,7 @@ public class NewOrderActivity extends BaseActivity implements
 	private void initView() {
 		basetitle.setText("新建预约单");
 		number_id.setOnFocusChangeListener(this);
+		input_card.setOnFocusChangeListener(this);
 		selecttime.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -240,6 +243,14 @@ public class NewOrderActivity extends BaseActivity implements
 				return ;
 			} else {
 				carnumValue = input_card.getText().toString();
+				Pattern pattern = Pattern.compile("^[\u4E00-\u9FA5][A-Z]{1}[a-zA-Z_0-9]{5}$");
+				Matcher matcher = pattern.matcher(carnumValue);
+				if (!matcher.matches()) {
+					ToastUtils.TextToast(mContext, "车牌号格式不对！");
+					return;
+				}else{
+					//System.out.println("车牌号格式正确！");
+				} 
 			}
 		}
 		submitHttp();
@@ -268,6 +279,21 @@ public class NewOrderActivity extends BaseActivity implements
 				}
 			}
 			break;
+			
+		case R.id.input_card:
+			//String regEx="^[\u4E00-\u9FA5][A-Z]{1}[a-zA-Z_0-9]{5}$"; //小明提供
+			//"^[\u4e00-\u9fa5|WJ]{1}[A-Z0-9]{6}$"
+		if (input_card.hasFocus() == false) {
+			Pattern pattern = Pattern.compile("^[\u4E00-\u9FA5][A-Z]{1}[a-zA-Z_0-9]{5}$");
+			carnumValue = input_card.getText().toString();
+			Matcher matcher = pattern.matcher(carnumValue);
+			if (!matcher.matches()) {
+				ToastUtils.TextToast(mContext, "车牌号格式不对！");
+			}else{
+				//System.out.println("车牌号格式正确！");
+			} 
+		}
+		break;
 		default:
 			break;
 		}

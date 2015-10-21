@@ -38,7 +38,7 @@ import com.lidroid.xutils.view.annotation.event.OnClick;
 public class CopyOfNewServeStepAActivity_copy extends BaseActivity implements
 		OnFocusChangeListener {
 
-	static final String TAG = "NewOrderActivity";
+	static final String TAG = "RegisterActivity";
 	CardNumberAdapter adapter;
 
 	@ViewInject(R.id.orderprice)

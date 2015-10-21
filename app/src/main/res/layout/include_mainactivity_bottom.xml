@@ -7,53 +7,58 @@
     android:baselineAligned="false"
     android:gravity="center"
     android:orientation="horizontal" >
-
-    <LinearLayout
-        android:id="@+id/main_personal_message"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0.2dp"
-        android:layout_weight="1"
-        android:background="@color/white"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="5dp" >
-
-        <ImageView
-            android:id="@+id/main_personal_message_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/message_2x"
-            android:contentDescription="@string/desc_blank"
-            android:scaleType="fitCenter" />
-    </LinearLayout>
-
     <LinearLayout
         android:id="@+id/main_home"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/height_footer"
         android:layout_marginTop="0.2dp"
         android:layout_weight="1"
         android:background="@color/white"
         android:gravity="center"
+        android:layout_gravity="center"
         android:orientation="vertical"
-        android:padding="5dp" >
-
-        <ImageView
+        android:paddingTop="@dimen/distance_max" >
+        <TextView
             android:id="@+id/main_home_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/home_2x"
+           android:drawableTop="@mipmap/footer_01"
+            android:text="首页"
+            android:textColor="@color/darkgray"
+            android:drawablePadding="@dimen/distance_max"
             android:contentDescription="@string/desc_blank"
             android:scaleType="fitCenter" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/main_personal_center"
+        android:id="@+id/main_order"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/height_footer"
+        android:layout_marginTop="0.2dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/distance_max" >
+
+        <TextView
+            android:id="@+id/main_order_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@mipmap/footer_02"
+            android:text="订单"
+            android:textColor="@color/darkgray"
+            android:drawablePadding="@dimen/distance_max"
+            android:contentDescription="@string/desc_blank"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_center"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
         android:layout_marginTop="0.2dp"
         android:layout_weight="1"
         android:background="@color/white"
@@ -62,13 +67,60 @@
         android:padding="5dp" >
 
         <ImageView
-            android:id="@+id/main_personal_center_iv"
+            android:id="@+id/main_center_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/p_center_2x"
+            android:src="@mipmap/footer_03"
+            android:drawablePadding="@dimen/distance_huge"
             android:contentDescription="@string/desc_blank"
             android:scaleType="fitCenter" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/main_personal_message"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_footer"
+        android:layout_marginTop="0.2dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/distance_max" >
+
+        <TextView
+            android:id="@+id/main_personal_message_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@mipmap/footer_04"
+            android:text="消息"
+            android:textColor="@color/darkgray"
+            android:drawablePadding="@dimen/distance_max"
+            android:contentDescription="@string/desc_blank"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/main_personal_center"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_footer"
+        android:layout_marginTop="0.2dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/distance_max" >
+
+        <TextView
+            android:id="@+id/main_personal_center_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@mipmap/footer_05"
+            android:text="我的"
+            android:textColor="@color/darkgray"
+            android:drawablePadding="@dimen/distance_max"
+            android:contentDescription="@string/desc_blank"
+            android:scaleType="fitCenter"/>
+    </LinearLayout>
 </LinearLayout>

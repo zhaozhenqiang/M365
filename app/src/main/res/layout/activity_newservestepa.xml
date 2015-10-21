@@ -225,7 +225,7 @@
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/selectstore"
+            android:id="@+id/selectstores"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/distance_huge"
@@ -292,7 +292,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:background="@drawable/btnstyleblue"
+            android:background="@drawable/btnstylemain"
             android:gravity="center"
             android:padding="10dp"
             android:text="下一步"

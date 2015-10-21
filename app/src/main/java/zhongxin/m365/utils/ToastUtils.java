@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import zhongxin.m365.R;
+
 /**
  * Toast 提示信息 1、文本 2.文本+图片
  * 
@@ -47,7 +49,7 @@ public class ToastUtils {
 	public static void ImageToast(Context context, int ImageResourceId,
 			String str) {
 		// 创建一个Toast提示消息
-		toast = Toast.makeText(context, str, 0);
+/*		toast = Toast.makeText(context, str, 0);
 		// 设置Toast提示消息在屏幕上的位置
 		toast.setGravity(Gravity.CENTER, 0, 0);
 		// 获取Toast提示消息里原有的View
@@ -59,10 +61,19 @@ public class ToastUtils {
 		LinearLayout ll = new LinearLayout(context);
 		// 向LinearLayout中添加ImageView和Toast原有的View
 		ll.setGravity(Gravity.CENTER_VERTICAL);
+		ll.setOrientation(LinearLayout.VERTICAL);
 		ll.addView(img);
 		ll.addView(toastView);
 		// 将LineLayout容器设置为toast的View
-		toast.setView(ll);
+		toast.setView(ll);*/
+		toast = Toast.makeText(context, str,Toast.LENGTH_SHORT);
+		toast.setGravity(Gravity.CENTER, 0, 0);
+		LinearLayout toastView = (LinearLayout) toast.getView();
+		ImageView imageCodeProject = new ImageView(context);
+		imageCodeProject.setPadding(10,20,10,20);
+		imageCodeProject.setImageResource(ImageResourceId);
+		toastView.addView(imageCodeProject, 0);
+		toast.show();
 		// 显示消息
 		toast.show();
 	}

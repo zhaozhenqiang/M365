@@ -7,7 +7,7 @@
 
     <include layout="@layout/actionbar_layout" />
 
-    <ImageView
+   <!-- <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/home_05"
@@ -72,6 +72,6 @@
             android:contentDescription="@string/desc_blank"
             android:gravity="right"
             android:src="@drawable/arrow_r" />
-    </LinearLayout>
+    </LinearLayout>-->
 
 </LinearLayout>

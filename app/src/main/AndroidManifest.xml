@@ -32,25 +32,28 @@
         <activity
             android:name="zhongxin.m365.MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity
+<!--        <activity
             android:name="zhongxin.m365.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop" >
-        </activity>
+        </activity>-->
 
         <!-- 登录 -->
         <activity
             android:name="zhongxin.m365.activity.LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <!-- 忘记密码 -->
         <activity android:name="zhongxin.m365.activity.ForgetPasdActivity" >
+        </activity>
+        <!-- 忘记密码 -->
+        <activity android:name="zhongxin.m365.activity.RegisterActivity" >
         </activity>
         <!-- 选取照片弹窗 -->
         <activity
