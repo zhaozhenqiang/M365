@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import zhongxin.m365.R;
 import zhongxin.m365.activity.BaseActivity;
+import zhongxin.m365.activity.NewAddressActivity;
 import zhongxin.m365.adapter.older.ServeAdapter;
 import zhongxin.m365.bean.older.ServeItem;
 import zhongxin.m365.constant.UCS;
@@ -124,7 +125,7 @@ public class ServeActivity extends BaseActivity implements IXListViewListener {
 		case R.id.righticon:
 
 		case R.id.startorder:
-			Intent start = new Intent(this, NewServeStepAActivity.class);
+			Intent start = new Intent(this, NewAddressActivity.class);
 			startActivity(start);
 		default:
 			break;

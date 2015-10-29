@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import zhongxin.m365.R;
 import zhongxin.m365.activity.BaseActivity;
+import zhongxin.m365.activity.NewAddressActivity;
 import zhongxin.m365.activity.RegisterActivity;
 import zhongxin.m365.bean.older.Mo;
 import zhongxin.m365.bean.older.OrderItem;
@@ -341,7 +342,7 @@ if(page==1){
 						is_size+=(entry.getIs_carsize()+",");//
 					}
 					
-					Intent intent = new Intent(context,NewServeStepAActivity.class);
+					Intent intent = new Intent(context,NewAddressActivity.class);
 						intent.putExtra("midValue", order.get(position).getM_id());
 						intent.putExtra("mobileValue", order.get(position).getM_mobile());
 						intent.putExtra("carnumValue", order.get(position).getPlate_num());

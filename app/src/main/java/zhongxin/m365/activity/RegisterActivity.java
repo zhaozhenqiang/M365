@@ -1,8 +1,5 @@
 package zhongxin.m365.activity;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -10,165 +7,125 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnFocusChangeListener;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
+import zhongxin.m365.MainActivity;
 import zhongxin.m365.R;
-import zhongxin.m365.activity.older.SelectServeActivity;
-import zhongxin.m365.adapter.older.CardNumberAdapter;
-import zhongxin.m365.bean.older.OrderCar;
 import zhongxin.m365.constant.UCS;
-import zhongxin.m365.utils.HttpUtils;
-import zhongxin.m365.utils.HttpUtils.BackJson;
 import zhongxin.m365.utils.InputControl;
-import zhongxin.m365.utils.JsonParserUtils;
 import zhongxin.m365.utils.ToastUtils;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ContentView;
 import com.lidroid.xutils.view.annotation.ViewInject;
-import com.lidroid.xutils.view.annotation.event.OnClick;
-import com.xia.ui.component.MyDateTimePickerDialog;
-import com.xia.ui.component.MyDateTimePickerDialog.OnDateTimeSetListener;
 
 @ContentView(R.layout.activity_register)
 public class RegisterActivity extends BaseActivity {
-	private Button nextbtn;
-	private EditText codeet, phoneet;
-	private TextView getcodebtn;
-	private String phonenumber, mcode;// 手机号
-	public static final String TYPEONE = "1";// 注册
-	public static final String TYPETWO = "2";// 修改
-	public static final String TAG = "ForgetPasdActivity";
-	boolean testFlag = false;
-	@ViewInject(R.id.pasd)
-	private EditText pasd;
-	String uid;
+
+	public Context mContext;
+	public static final String TAG = "RegisterActivity";
+	// 手机号,验证码，密码
+	private String phoneSting, codeString,passwordString;
+	@ViewInject(R.id.phone_number)
+	private EditText phoneEt;
+	@ViewInject(R.id.code_number)
+	private EditText codeEt;
+	@ViewInject(R.id.password_number)
+	private EditText passwordEt;
+	@ViewInject(R.id.get_code)
+	private TextView getcodeTv;
+	@ViewInject(R.id.sure)
+	private Button sureBu;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_register);
+		ViewUtils.inject(this);
+		//setContentView(R.layout.activity_register);
+		ToastUtils.TextToast(getApplicationContext(), "前期阶段，无验证码亦可以注册!");
+		mContext = this;
 		initData();
 		initView();
-		getintentdate();
 	}
 
 	private void initData() {
 		basetitle.setText("用户注册");
 	}
 
-	/**
-	 * 获取传送过来的数据
-	 */
-	public void getintentdate() {
-		if (getIntent().getExtras() != null) {
-			phonenumber = getIntent().getExtras().getString(UCS.TEL);
-			if (phonenumber != null) {
-				phoneet.setText(phonenumber);
-			}
-		}
-	}
 
 	private void initView() {
-		getcodebtn = (TextView) findViewById(R.id.getCode_forgrtpasd);
-		nextbtn = (Button) findViewById(R.id.next_forgetpasd);
-		phoneet = (EditText) findViewById(R.id.phone_forgetpasd);
-		codeet = (EditText) findViewById(R.id.code_forgetpasd);
-		pasd = (EditText) findViewById(R.id.pasd);
-		Forgetpasdlistener l = new Forgetpasdlistener();
-		nextbtn.setOnClickListener(l);
-		getcodebtn.setOnClickListener(l);
-
+		Selflistener selflistener = new Selflistener();
+		getcodeTv.setOnClickListener(selflistener);
+		sureBu.setOnClickListener(selflistener);
 	}
 
 	Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 			int i = msg.arg1;
 			if (i >= 1) {
-				getcodebtn.setClickable(false);
-				getcodebtn.setText(i + "秒后重新发送");
+				getcodeTv.setClickable(false);
+				getcodeTv.setText(i + "秒后重新发送");
 			} else {
-				getcodebtn.setClickable(true);
-				getcodebtn.setText(R.string.getcode_regist);
+				getcodeTv.setClickable(true);
+				getcodeTv.setText(R.string.getcode_regist);
 			}
 		};
 	};
 
-	class Forgetpasdlistener implements OnClickListener {
+	class Selflistener implements OnClickListener {
 
 		@Override
 		public void onClick(View view) {
 			switch (view.getId()) {
-				case R.id.getCode_forgrtpasd:
+				case R.id.get_code:
 					// 获取验证码
-					if (InputControl.isPhoneNumber(phoneet)) {
-						isAccount();
+					if (InputControl.isPhoneNumber(phoneEt)) {
+						//isAccount();
+						getCodeControl();
 					} else {
 						ToastUtils.TextToast(getApplicationContext(), "请输入合法的手机号码");
 					}
 
 					break;
-				case R.id.next_forgetpasd:
-					if (InputControl.isPhoneNumber(phoneet)
-							&& !InputControl.ISNumber(codeet)) {
+				case R.id.sure:
+					if (InputControl.isPhoneNumber(phoneEt) && !InputControl.ISNumber(phoneEt)) {
 						// 下一步
-						String codeinput = codeet.getText().toString();// 用户输入的验证码
-						if (mcode != null && mcode.equals(codeinput) || "".equals(codeinput)) {
-							setPassword();
+						codeString = codeEt.getText().toString();// 用户输入的验证码
+						phoneSting = phoneEt.getText().toString();
+						passwordString = passwordEt.getText().toString();
+
+						//if (codeString != null && !"".equals(codeString)) {
+						if (passwordString != null && !"".equals(passwordString)) {
+							SharedPreferences user = getSharedPreferences(
+									UCS.USERINFO, Activity.MODE_PRIVATE);
+							SharedPreferences.Editor editor = user.edit();
+							editor.putString(UCS.MOBILE, phoneSting);// 存储用户名
+							editor.putString(UCS.PASSWORD, passwordString);
+							editor.commit();
+							Intent main = new Intent(mContext, LoginActivity.class);
+							main.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);// 清空已存在的所有Activity
+							startActivity(main);
+							//ToastUtils.TextToast(getApplicationContext(), "前期阶段，无验证码亦可以注册!");
 						} else {
-							ToastUtils.TextToast(getApplicationContext(), "验证码有误!");
+							/*Intent main = new Intent(mContext, LoginActivity.class);
+							main.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);// 清空已存在的所有Activity
+							startActivity(main);*/
+							ToastUtils.TextToast(getApplicationContext(), "密码不可以为空!");
+							//ToastUtils.TextToast(getApplicationContext(), "验证码有误!");
 						}
 					} else {
 						ToastUtils.TextToast(getApplicationContext(),
-								"请输入合法的手机号码,验证码!");
+								"请输入合法的手机号码!");
 					}
 					break;
 				default:
 					break;
 			}
 		}
-	}
-
-	private void setPassword() {
-		String url = UCS.URLCOMMON + "user/index/modifypwd";
-		String keys[] = { "uid", "pwd", "update_id", UCS.MOBILE, "vcode" };
-		String pasdstr = pasd.getText().toString();
-		// pasdstr = MD5.getMD5(pasdstr);
-		// repasdstr = MD5.getMD5(repasdstr);
-		String values[] = { uid, pasdstr, uid, phoneet.getText().toString(),
-				codeet.getText().toString() };
-		Log.i(TAG, "mobile[" + "]" + "pasdstr[" + pasdstr + "]" + "authcode["
-				+ "]" + "repasdstr[" + "]");
-
-	}
-
-	/** 判断是否已经注册 */
-	private void isAccount() {
-		String url_test = UCS.URLCOMMON + "user/index/ckmuser";
-		String keys[] = { UCS.MOBILE };
-		String values[] = { phoneet.getText().toString() };
-
-	}
-
-	/** 获得验证码 */
-	private void getCode() {
-
-		String url = UCS.URLCOMMON + "vcode/index/vcode";
-		String keys[] = { UCS.MOBILE };
-		String values[] = { phoneet.getText().toString() };
-
 	}
 
 	/**
@@ -192,6 +149,36 @@ public class RegisterActivity extends BaseActivity {
 
 			};
 		}.start();
+	}
+/*
+	private void setPassword() {
+		String url = UCS.URLCOMMON + "user/index/modifypwd";
+		String keys[] = { "uid", "pwd", "update_id", UCS.MOBILE, "vcode" };
+		String pasdstr = pasd.getText().toString();
+		// pasdstr = MD5.getMD5(pasdstr);
+		// repasdstr = MD5.getMD5(repasdstr);
+		String values[] = { uid, pasdstr, uid, phoneet.getText().toString(),
+				codeet.getText().toString() };
+		Log.i(TAG, "mobile[" + "]" + "pasdstr[" + pasdstr + "]" + "authcode["
+				+ "]" + "repasdstr[" + "]");
 
 	}
+
+	*//** 判断是否已经注册 *//*
+	private void isAccount() {
+		String url_test = UCS.URLCOMMON + "user/index/ckmuser";
+		String keys[] = { UCS.MOBILE };
+		String values[] = { phoneet.getText().toString() };
+
+	}
+
+	*//** 获得验证码 *//*
+	private void getCode() {
+
+		String url = UCS.URLCOMMON + "vcode/index/vcode";
+		String keys[] = { UCS.MOBILE };
+		String values[] = { phoneet.getText().toString() };
+
+	}*/
+
 }

@@ -1,20 +1,27 @@
 package zhongxin.m365.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Selection;
 import android.text.Spannable;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import zhongxin.m365.MainActivity;
 import zhongxin.m365.R;
 import zhongxin.m365.constant.UCS;
-import zhongxin.m365.selectimage.PopUpActivity;
 import zhongxin.m365.utils.InputControl;
 import zhongxin.m365.utils.ToastUtils;
 import com.lidroid.xutils.ViewUtils;
@@ -24,20 +31,30 @@ import com.lidroid.xutils.view.annotation.event.OnClick;
 
 @ContentView(R.layout.activity_login)
 public class LoginActivity extends BaseActivity {
-	@ViewInject(R.id.loginname_login)
-	private EditText loginname_login;/* 用户名 */
-	@ViewInject(R.id.loginpasd_login)
-	private EditText loginpasd_login;/* 用户密码 */
-	@ViewInject(R.id.loginbtn_loginbtn)
-	private Button loginbtn_loginbtn;/* 登录 */
-	/*
-	 * @ViewInject(R.id.regist_login) private TextView regist_login; 注册用户
-	 */
-	@ViewInject(R.id.forgetpasd_login)
-	private TextView forgetpasd_login;/* 找回密码 */
-	@ViewInject(R.id.basegohome)
-	private TextView basegohome;
+
+	public Context mContext;
+	public static final String TAG = "LoginActivity";
+	// 手机号,验证码，密码
+	private String phoneSting,passwordString;
+	@ViewInject(R.id.phone_number)
+	private EditText phoneEt;
+	@ViewInject(R.id.password_number)
+	private EditText passwordEt;
+	@ViewInject(R.id.sure)
+	private Button sureBu;
+
+	@ViewInject(R.id.look_password)
+	private ImageView look_password;
+	@ViewInject(R.id.look_frame)
+	private FrameLayout look_frame;
+
+	@ViewInject(R.id.forget)
+	TextView forgetTv;
+	@ViewInject(R.id.register)
+	TextView registerTv;
 	Intent intent;
+
+	String phonePreString, passwordPreString;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,16 +62,28 @@ public class LoginActivity extends BaseActivity {
 		basetitle.setText("用户登录");
 		initview();/* 初始化界面 设置标题（登录） */
 		intent = new Intent(this, MainActivity.class);
+		SharedPreferences preferences = getSharedPreferences(UCS.USERINFO,
+				Activity.MODE_PRIVATE);
+		phonePreString = preferences.getString(UCS.MOBILE, "1");
+		passwordPreString = preferences.getString(UCS.PASSWORD, "1");
+
+
+	DisplayMetrics metric = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(metric);
+
+		float density= metric.density;// 屏幕密度（0.75 / 1.0 / 1.5）
+		int densityDpi = metric.densityDpi;// 屏幕密度DPI（120 / 160 / 240）
+		Toast.makeText(this,"屏幕密度： "+density+"； dpi： "+densityDpi,Toast.LENGTH_LONG).show();
+		//Log("midu"+density+"dpi"+densityDpi);
+
+
+
 	}
 
 	/**
 	 * 初始化界面 设置标题（登录）
 	 */
 	public void initview() {
-		// System.out.println(UCS.URLCOMMON
-		// + "内外网标志位显示********************************************");
-		// basetitle.setText("登      录");
-		// basegohome.setVisibility(TextView.GONE);
 	}
 
 	/**
@@ -63,37 +92,35 @@ public class LoginActivity extends BaseActivity {
 	boolean passwordflag = false;
 	String password = "";
 
-	@OnClick({R.id.loginbtn_loginbtn, R.id.forgetpasd_login,R.id.register, R.id.image, R.id.look_password})
+	@OnClick({R.id.sure, R.id.forget,R.id.register,R.id.look_frame})
 	public void onClick(View view) {
 		super.onClick(view);
 		switch (view.getId()) {
-			case R.id.look_password:
+			case R.id.look_frame:
 				if (!passwordflag) {
-					loginpasd_login.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+
+					look_password.setImageDrawable(getResources().getDrawable(R.mipmap.login_03_));
+					passwordEt.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 				} else {
-					loginpasd_login.setTransformationMethod(PasswordTransformationMethod.getInstance());
+					look_password.setImageDrawable(getResources().getDrawable(R.mipmap.login_03));
+
+					passwordEt.setTransformationMethod(PasswordTransformationMethod.getInstance());
 				}
 				passwordflag = !passwordflag;
-				loginpasd_login.postInvalidate();
-				CharSequence text = loginpasd_login.getText();
+				passwordEt.postInvalidate();
+				CharSequence text = passwordEt.getText();
 				if (text instanceof Spannable) {
 					Spannable spanText = (Spannable) text;
 					Selection.setSelection(spanText, text.length());
 				}
 				break;
-			case R.id.image:
-			/* 更换用户头像//当前采用本地存储的方式，ref,file,练练手O(∩_∩)O哈哈~！！！之后或考虑存在网络上 */
-				Intent popuimage = new Intent(getApplicationContext(),
-						PopUpActivity.class);
-				popuimage.putExtra(UCS.FLAG, UCS.PERSONALCENTERFRAGEMENT);
-				startActivity(popuimage);
-				break;
+
 		/*
 		 * case R.id.deletename_login: 删除用户名 loginname_login.setText(null);
 		 * break; case R.id.deletepasd_login: 删除用户密码
 		 * loginpasd_login.setText(null); break;
 		 */
-			case R.id.loginbtn_loginbtn:
+			case R.id.sure:
 			/* 登录 */
 				login();
 /*				if (!InputControl.isPhoneNumber(loginname_login)) {
@@ -106,17 +133,14 @@ public class LoginActivity extends BaseActivity {
 						ToastUtils.TextToast(getApplicationContext(), "请输入账户名，或密码");
 					}
 				}*/
-
-
-
 				break;
-			case R.id.forgetpasd_login:
+			case R.id.forget:
 			/* 找回密码，忘记密码 */
 				Intent intentforgetPasd = new Intent(getApplicationContext(),
 						ForgetPasdActivity.class);
 				String ph = "";
-				if (loginname_login.getText() != null && !loginname_login.getText().equals("")) {
-					ph = loginname_login.getText().toString();
+				if (phoneEt.getText() != null && !phoneEt.getText().equals("")) {
+					ph = phoneEt.getText().toString();
 				}
 				intentforgetPasd.putExtra(UCS.TEL, ph);// 将手机号码传过去
 				intentforgetPasd.putExtra(UCS.TITLE, "找回密码");
@@ -155,20 +179,23 @@ public class LoginActivity extends BaseActivity {
 	 * 登录
 	 */
 	private void login() {
-		String url = UCS.URLCOMMON + "login/index/login";
+
+		/*String url = UCS.URLCOMMON + "login/index/login";
 		String keys[] = {"username", "password"};
 		// String pasd = MD5.getMD5(loginpasd_login.getText().toString());
-		String values[] = {loginname_login.getText().toString(),
-				loginpasd_login.getText().toString()};
-		if(!loginname_login.getText().toString().equals("123")){
+		String values[] = {phoneEt.getText().toString(),
+				phoneEt.getText().toString()};*/
+		/*System.out.print(phoneEt+"text"+phoneEt.getText()+"string"+phonePreString+"..."+passwordPreString);
+		if(!phoneEt.getText().toString().equals(phonePreString)||!passwordEt.getText().toString().equals(passwordPreString)){
 			ToastUtils.ImageToast(this,R.mipmap.login_04,"账号或密码错误");
 		}
-		else{
-			Intent main = new Intent(getApplicationContext(),
-					MainActivity.class);
+		else{*/
+			Intent main = new Intent(getApplicationContext(),MainActivity.class);
+			main.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);// 清空已存在的所有Activity
+
 			startActivity(main);
 
-		}
+		//}
 
 /*		HttpUtils.upload(this, url, keys, values, new BackJson() {
 

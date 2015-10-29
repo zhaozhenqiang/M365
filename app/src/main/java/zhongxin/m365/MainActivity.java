@@ -29,6 +29,8 @@ public class MainActivity extends BaseActivity {
 	private TextView main_home_iv;// 首页
 	@ViewInject(R.id.main_personal_center_iv)
 	private TextView main_personal_center_iv;// 个人中心
+	@ViewInject(R.id.main_order_iv)
+	private TextView main_order_iv;//
 	private FragmentManager fm;
 	private HomeFragment homeFragment;
 	private PersonalCenterFragment personalCenterFragment;
@@ -54,27 +56,37 @@ public class MainActivity extends BaseActivity {
 		//main_home_iv.setBackgroundResource(R.drawable.home_cur_2x);// 初始化
 	}
 
-	@OnClick({ R.id.main_home, R.id.main_personal_center,
-			R.id.main_personal_message })
+	@OnClick({ R.id.main_home, R.id.main_personal_center,R.id.main_personal_message,R.id.main_order,R.id.main_center_iv })
 	public void mOnClick(View v) {
 		switch (v.getId()) {
 		case R.id.main_personal_message:
-/*			changebackground();
-			main_personal_message_iv.setBackgroundResource(R.drawable.message_cur_2x);
+			changebackground();
+/*			main_personal_message_iv.setBackgroundResource(R.drawable.message_cur_2x);
 			//changeFragment(newsFragment);*/
 			break;
 		/* 主页 */
 		case R.id.main_home:
-/*			changebackground();
-			main_home_iv.setBackgroundResource(R.drawable.home_cur_2x);
+			changebackground();
+/*			main_home_iv.setBackgroundResource(R.drawable.home_cur_2x);
 			//changeFragment(homeFragment);*/
 			break;
 		/* 个人中心 */
 		case R.id.main_personal_center:
 			changebackground();
-			//main_personal_center_iv.setBackgroundResource(R.drawable.p_center_cur_2x);
+
+			Drawable topDrawable = getResources().getDrawable(R.mipmap.footer_05_);
+			topDrawable.setBounds(0, 0, topDrawable.getMinimumWidth(), topDrawable.getMinimumHeight());
+			main_personal_center_iv.setCompoundDrawablesWithIntrinsicBounds(null, topDrawable, null, null);
+			main_personal_center_iv.setTextColor(getResources().getColor(R.color.maingreen));
+
 			changeFragment(personalCenterFragment);
 			break;
+			case R.id.main_order:
+				//changebackground();
+				break;
+			case R.id.main_center:
+				changebackground();
+				break;
 		default:
 			break;
 		}
@@ -84,14 +96,27 @@ public class MainActivity extends BaseActivity {
 	 * 点击控件背景
 	 */
 	public void changebackground() {
-		//main_personal_message_iv.setBackgroundResource(R.drawable.message_2x);
-		//main_home_iv.setBackgroundResource(R.drawable.home_2x);
-		//main_personal_center_iv.setBackgroundResource(R.drawable.p_center_2x);
-
-		Drawable topDrawable = getResources().getDrawable(R.mipmap.footer_05_);
+		Drawable topDrawable = getResources().getDrawable(R.mipmap.footer_05);
 		topDrawable.setBounds(0, 0, topDrawable.getMinimumWidth(), topDrawable.getMinimumHeight());
-		//tvVersionStatus.setCompoundDrawables(null, null, rightDrawable, null);
-		main_personal_center_iv.setCompoundDrawablesWithIntrinsicBounds(null,topDrawable,null,null);
+		main_personal_center_iv.setCompoundDrawablesWithIntrinsicBounds(null, topDrawable, null, null);
+		main_home_iv.setTextColor(getResources().getColor(R.color.darkgray));
+		main_personal_message_iv.setTextColor(getResources().getColor(R.color.darkgray));
+		main_order_iv.setTextColor(getResources().getColor(R.color.darkgray));
+		main_personal_center_iv.setTextColor(getResources().getColor(R.color.darkgray));
+
+
+		topDrawable = getResources().getDrawable(R.mipmap.footer_01);
+		topDrawable.setBounds(0, 0, topDrawable.getMinimumWidth(), topDrawable.getMinimumHeight());
+		main_home_iv.setCompoundDrawablesWithIntrinsicBounds(null, topDrawable, null,null);
+
+		topDrawable = getResources().getDrawable(R.mipmap.footer_02);
+		topDrawable.setBounds(0, 0, topDrawable.getMinimumWidth(), topDrawable.getMinimumHeight());
+		main_order_iv.setCompoundDrawablesWithIntrinsicBounds(null, topDrawable, null,null);
+
+		topDrawable = getResources().getDrawable(R.mipmap.footer_04);
+		topDrawable.setBounds(0, 0, topDrawable.getMinimumWidth(), topDrawable.getMinimumHeight());
+		main_personal_message_iv.setCompoundDrawablesWithIntrinsicBounds(null,topDrawable,null,null);
+
 	}
 
 	/* 初始化Fragment */

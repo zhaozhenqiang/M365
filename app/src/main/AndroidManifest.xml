@@ -56,15 +56,25 @@
         <activity android:name="zhongxin.m365.activity.RegisterActivity" >
         </activity>
         <!-- 选取照片弹窗 -->
-        <activity
-            android:name=".selectimage.PopUpActivity"
-            android:theme="@style/MyDialogStyleBottom" >
-        </activity>
         <!-- 图片剪裁  上传 -->
         <activity
-            android:name=".selectimage.ClipImageActivity"
-            android:label="@string/title_activity_clip_image" >
+            android:name=".activity.MyInfoActivity">
         </activity>
+        <activity
+            android:name=".activity.MyAddressActivity">
+        </activity>
+        <activity
+            android:name=".activity.NewAddressActivity">
+        </activity>
+        <activity
+            android:name=".activity.SetActivity">
+        </activity>
+        <activity
+            android:name=".activity.QuestionActivity">
+        </activity>
+        <activity
+        android:name=".activity.QuestionDetailActivity">
+    </activity>
     </application>
 
 </manifest>

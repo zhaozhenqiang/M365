@@ -17,7 +17,7 @@
     <string name="forget_password">输入新密码(6-20位字母/数字)</string>
     <string name="forget_sure">完成</string>
     <string name="forget_code">输入校验码</string>
-    <string name="forget_code_index">获得校验码</string>
+    <string name="forget_code_index">获取校验码</string>
 
 
 

@@ -14,78 +14,88 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/my_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:padding="10dp">
 
             <ImageView
                 android:id="@+id/image_head"
-                android:layout_alignParentLeft="true"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
+                android:layout_alignParentLeft="true"
                 android:layout_marginLeft="10dp"
-                android:src="@drawable/login_01"
-                android:contentDescription="@string/desc_blank" />
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/desc_blank"
+                android:src="@drawable/login_01" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf ="@id/image_head"
+                android:layout_toRightOf="@id/image_head"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/phone_forgetpasd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="七宝冒气羊肉"
                     android:inputType="number"
+                    android:text="七宝冒气羊肉"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/phone_forgetpas1d"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="羊肉"
-                    android:paddingTop="5dp"
                     android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
                     android:textSize="12sp" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/my_little_01"
-                        android:layout_marginRight="5dp"/>
+                        android:layout_marginRight="5dp"
+                        android:src="@mipmap/my_little_01" />
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/my_little_02"
-                        android:layout_marginRight="5dp"/>
+                        android:layout_marginRight="5dp"
+                        android:src="@mipmap/my_little_02" />
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/my_little_03"
-                        android:layout_marginRight="5dp"/>
-                    </LinearLayout>
+                        android:layout_marginRight="5dp"
+                        android:src="@mipmap/my_little_03" />
+                </LinearLayout>
             </LinearLayout>
+
             <ImageView
-                android:layout_alignParentRight="true"
-            android:id="@+id/getCode_forgrtpasd"
+                android:id="@+id/getCode_forgrtpasd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_alignParentRight="true"
                 android:layout_gravity="right"
                 android:gravity="right"
+                android:padding="20dp"
                 android:src="@mipmap/my_code"
                 android:textColor="@color/white" />
-        </RelativeLayout>>
-<!--地址，银行卡，实名认证-->
+        </RelativeLayout>
+        >
+        <!--地址，银行卡，实名认证-->
         <LinearLayout
+            android:id="@+id/my_address"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -105,15 +115,15 @@
                 android:drawableLeft="@mipmap/my_address"
                 android:drawablePadding="10dp"
                 android:padding="5dp"
-                android:text="我的地址"
+                android:text="我的地址111"
                 android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:layout_marginRight="5dp"
-                android:hint="3" />
+                android:hint="3"
+                android:padding="10dp" />
         </LinearLayout>
 
         <ImageView
@@ -143,15 +153,15 @@
                 android:drawableLeft="@mipmap/my_card"
                 android:drawablePadding="10dp"
                 android:padding="5dp"
-                android:text="我的地址"
+                android:text="我的银行卡"
                 android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:layout_marginRight="5dp"
-                android:hint="3" />
+                android:hint="3"
+                android:padding="10dp" />
         </LinearLayout>
 
         <ImageView
@@ -160,6 +170,7 @@
             android:layout_marginLeft="@dimen/distance_superhuge"
             android:background="@color/basebackground"
             android:contentDescription="@string/desc_blank" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -180,14 +191,14 @@
                 android:drawableLeft="@mipmap/my_namesure"
                 android:drawablePadding="10dp"
                 android:padding="5dp"
-                android:text="我的地址"
+                android:text="实名认证"
                 android:textSize="16sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:layout_marginRight="5dp"
+                android:padding="10dp"
                 android:src="@mipmap/my_tick" />
         </LinearLayout>
 
@@ -198,6 +209,6 @@
             android:background="@color/basebackground"
             android:contentDescription="@string/desc_blank" />
 
-</LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

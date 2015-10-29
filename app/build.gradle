@@ -20,6 +20,7 @@ android {
 dependencies {
     compile 'com.android.support:support-v4:19.1.0'
     compile 'com.google.code.gson:gson:2.1'
+    compile files('libs/core.jar')
     compile files('libs/umeng-update-v2.6.0.1.jar')
     compile files('libs/xUtils-2.6.13.jar')
 }

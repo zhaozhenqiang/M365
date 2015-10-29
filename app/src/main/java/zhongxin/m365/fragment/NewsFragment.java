@@ -7,7 +7,7 @@ import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import zhongxin.m365.R;
-import zhongxin.m365.activity.older.NewsDetailActivity;
+import zhongxin.m365.activity.SetActivity;
 import zhongxin.m365.bean.older.NewsInfo;
 import zhongxin.m365.constant.UCS;
 import zhongxin.m365.utils.HttpUtils;
@@ -264,7 +264,7 @@ private void mOnClick(View v) {
 		String title = news.get(position - 1).getTitle();
 		String content = news.get(position - 1).getContent();
 		String insert_time = news.get(position - 1).getInsert_time();
-		Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
+		Intent intent = new Intent(getActivity(), SetActivity.class);
 		/*
 		 * 修改信息数据的阅读状态 地址：http://app2.1jia2.cn/carpark/business/msg/index/
 		 * informationmodifystatus 参数：  1. id  

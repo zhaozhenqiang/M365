@@ -20,7 +20,7 @@
             android:gravity="center_vertical" >
 
             <EditText
-                android:id="@+id/phone_forgetpasd"
+                android:id="@+id/phone_number"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -48,22 +48,20 @@
 
             <!--    <zhongxin.m365.views.ClearableEditText-->
             <EditText
-                android:id="@+id/code_forgetpasd"
+                android:id="@+id/code_number"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@null"
                 android:hint="@string/forget_code"
-                android:inputType="textPassword"
                 android:textSize="16sp" />
             <TextView
-                android:id="@+id/getCode_forgrtpasd"
+                android:id="@+id/get_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btnstylemain"
                 android:padding="5dp"
                 android:text="@string/forget_code_index"
-                android:textColor="@color/white" />
+                android:textColor="@color/greentext" />
         </LinearLayout>
 
         <ImageView
@@ -83,7 +81,7 @@
 
             <!--    <zhongxin.m365.views.ClearableEditText-->
             <EditText
-                android:id="@+id/pasd"
+                android:id="@+id/password_number"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -109,7 +107,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/next_forgetpasd"
+        android:id="@+id/sure"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/distance_superhuge"

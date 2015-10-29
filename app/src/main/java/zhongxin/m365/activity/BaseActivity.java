@@ -17,7 +17,7 @@ import android.widget.TextView;
 /**
  * BaseActivity 添加标题 监听标题点击事件 设置basetitle名字
  * 
- * @author zhaohuathinkpad
+ * @author zhaozhenqiang
  * 
  */
 public class BaseActivity extends FragmentActivity {
@@ -34,7 +34,7 @@ public class BaseActivity extends FragmentActivity {
 		// 检测内存使用情况
 		MemoryManagementTools.getMemory(tag, this);
 		basetitle = (TextView) findViewById(R.id.basetitle);/* 标题 用于子类 设置标题 */
-		rightbtn = (Button) findViewById(R.id.basegohome);
+		rightbtn = (Button) findViewById(R.id.rightbtn);
 		righticon = (ImageView) findViewById(R.id.righticon);//
 
 	}

@@ -11,6 +11,9 @@
     <!-- ================================================================= -->
     <color name="grey"> #ebebeb</color>
     <color name="yellobtn"> #FE9900</color>
+
+
+    <color name="deletepink">#f1737f</color>
     <!-- 条目 -->
     <color name="item_text">#333333</color>
     <color name="item_background">#ffffff</color>
@@ -20,6 +23,10 @@
     <color name="yello">#F8F8FF00</color>
     <color name="darkgray">#938192</color>
     <color name="lightgreen">#7cd12e</color>
+
+    <color name="maingreen">#76d56e</color>
+    <color name="greentext">#6cae30</color>
+
     <color name="black">#000000</color>
     <color name="orange">#fca00e</color>
     <color name="titlecolor">#44B6FD</color>
@@ -67,6 +74,7 @@
     <!-- #ff0000ff -->
     <color name="scannerbackgroud">#ffffffff</color>
     <color name="scannertitle_tv_color">#ffffffff</color>
+
     <color name="TextColorBlack">#FF000000</color>
     <color name="TextColordarklest">#333333</color>
     <color name="TextColordarker">#666666</color>

@@ -22,9 +22,9 @@ import android.widget.TextView;
 
 @ContentView(R.layout.activity_feed_back)
 public class FeedBackActivity extends BaseActivity {
-
+/*
 	@ViewInject(R.id.basegohome)
-	private TextView basegohome;
+	private TextView basegohome;*/
 	@ViewInject(R.id.suit)
 	private Button suit;// 提交
 	@ViewInject(R.id.content)
@@ -42,7 +42,7 @@ public class FeedBackActivity extends BaseActivity {
 	 */
 	public void initview() {
 		basetitle.setText("意见反馈");
-		basegohome.setVisibility(TextView.GONE);
+		//basegohome.setVisibility(TextView.GONE);
 	}
 
 	@OnClick({ R.id.suit })

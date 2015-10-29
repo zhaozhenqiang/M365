@@ -15,9 +15,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_margin="10dp"
+            android:layout_height="60dp"
+
+            android:layout_marginLeft="10dp"
             android:gravity="center_vertical" >
 
             <ImageView
@@ -28,7 +28,7 @@
                 android:background="@mipmap/login_01" />
 
             <EditText
-                android:id="@+id/loginname_login"
+                android:id="@+id/phone_number"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -47,9 +47,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="10dp"
-            android:paddingTop="10dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:orientation="horizontal" >
@@ -63,7 +63,7 @@
 
         <!--    <zhongxin.m365.views.ClearableEditText-->
 <EditText
-                android:id="@+id/loginpasd_login"
+                android:id="@+id/user_password"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -71,13 +71,19 @@
                 android:hint="@string/password_login"
                 android:inputType="textPassword"
                 android:textSize="16sp" />
+            <FrameLayout
+                android:id="@+id/look_frame"
+                android:layout_width="60dp"
+                android:layout_height="60dp">
             <ImageView
                 android:id="@+id/look_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@mipmap/login_03" />
+            </FrameLayout>
         </LinearLayout>
 
         <ImageView
@@ -90,7 +96,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/loginbtn_loginbtn"
+        android:id="@+id/sure"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/distance_superhuge"
@@ -102,17 +108,15 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/distance_huge"
         android:layout_marginLeft="@dimen/distance_superhuge"
         android:layout_marginRight="@dimen/distance_superhuge"
-
-        android:layout_weight="1"
         android:orientation="horizontal" >
         <TextView
             android:id="@+id/register"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/distance_huge"
             android:layout_weight="1"
             android:gravity="left"
@@ -120,9 +124,9 @@
             android:textColor="@color/TextColordark"
             android:textSize="@dimen/text_size_mid" />
         <TextView
-            android:id="@+id/forgetpasd_login"
+            android:id="@+id/forget"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
             android:text="忘记密码"
